@@ -25,12 +25,10 @@ class FriendsController < ApplicationController
   # POST /friends
   # POST /friends.json
   def create
-    @friend = @user.friends.build(friend_params).tap do |friend|
-      UserFriend.new(user: @user, friend: friend)
-    end
+    @friend = @user.friends.create!(friend_params)
 
     respond_to do |format|
-      if @friend.save
+      if @friend.persisted?
         format.html { redirect_to user_friends_path(@user), notice: 'Friend was successfully created.' }
         format.json { render :show, status: :created, location: @friend }
       else
