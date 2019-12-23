@@ -7,7 +7,7 @@ class FriendsController < ApplicationController
   # GET /friends
   # GET /friends.json
   def index
-    @friends = Friend.all
+    @friends = @user.friends
   end
 
   # GET /friends/1
@@ -25,7 +25,9 @@ class FriendsController < ApplicationController
   # POST /friends
   # POST /friends.json
   def create
-    @friend = @user.friends.build(friend_params)
+    @friend = @user.friends.build(friend_params).tap do |friend|
+      UserFriend.new(user: @user, friend: friend)
+    end
 
     respond_to do |format|
       if @friend.save
@@ -75,6 +77,6 @@ class FriendsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def friend_params
-    params.require(:friend).permit(:first_name, :last_name, :user_id)
+    params.require(:friend).permit(:first_name, :last_name)
   end
 end
