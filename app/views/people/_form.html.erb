@@ -1,10 +1,10 @@
-<%= form_with(model: [ @user, friend ], local: true) do |form| %>
-  <% if friend.errors.any? %>
+<%= form_with(model: [ @user, person ], local: true) do |form| %>
+  <% if person.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(friend.errors.count, "error") %> prohibited this friend from being saved:</h2>
+      <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
 
       <ul>
-        <% friend.errors.full_messages.each do |message| %>
+        <% person.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -19,6 +19,11 @@
   <div class="field">
     <%= form.label :last_name %>
     <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birthday %>
+    <%= form.date_field :birthday, as: :date %>
   </div>
 
   <div class="actions">

@@ -4,7 +4,7 @@ require 'test_helper'
 
 class FriendsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @friend = friends(:one)
+    @person = friends(:one)
   end
 
   test 'should get index' do
@@ -17,32 +17,32 @@ class FriendsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should create friend' do
-    assert_difference('Friend.count') do
-      post friends_url, params: { friend: { first_name: @friend.first_name, last_name: @friend.last_name } }
+  test 'should create person' do
+    assert_difference('Person.count') do
+      post friends_url, params: { person: { first_name: @person.first_name, last_name: @person.last_name } }
     end
 
-    assert_redirected_to friend_url(Friend.last)
+    assert_redirected_to friend_url(Person.last)
   end
 
-  test 'should show friend' do
-    get friend_url(@friend)
+  test 'should show person' do
+    get friend_url(@person)
     assert_response :success
   end
 
   test 'should get edit' do
-    get edit_friend_url(@friend)
+    get edit_friend_url(@person)
     assert_response :success
   end
 
-  test 'should update friend' do
-    patch friend_url(@friend), params: { friend: { first_name: @friend.first_name, last_name: @friend.last_name } }
-    assert_redirected_to friend_url(@friend)
+  test 'should update person' do
+    patch friend_url(@person), params: { person: { first_name: @person.first_name, last_name: @person.last_name } }
+    assert_redirected_to friend_url(@person)
   end
 
-  test 'should destroy friend' do
-    assert_difference('Friend.count', -1) do
-      delete friend_url(@friend)
+  test 'should destroy person' do
+    assert_difference('Person.count', -1) do
+      delete friend_url(@person)
     end
 
     assert_redirected_to friends_url

@@ -1,0 +1,6 @@
+<h1>Editing Experience</h1>
+
+<%= render 'form', experience: @experience %>
+
+<%= link_to 'Show', user_person_experience_path(@user, @person, @experience) %> |
+<%= link_to 'Back', user_person_experiences_path(@user, @person) %>
