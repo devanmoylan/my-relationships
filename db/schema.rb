@@ -12,7 +12,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_191_226_230_708) do
+ActiveRecord::Schema.define(version: 20_191_227_004_108) do
+  create_table 'events', force: :cascade do |t|
+    t.integer 'person_id', null: false
+    t.date 'date'
+    t.integer 'duration'
+    t.string 'role'
+    t.text 'description'
+    t.string 'title'
+    t.string 'location'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['person_id'], name: 'index_events_on_person_id'
+  end
+
   create_table 'experiences', force: :cascade do |t|
     t.string 'experience_type'
     t.date 'start_date'
@@ -70,5 +83,6 @@ ActiveRecord::Schema.define(version: 20_191_226_230_708) do
     t.index ['unlock_token'], name: 'index_users_on_unlock_token', unique: true
   end
 
+  add_foreign_key 'events', 'people'
   add_foreign_key 'experiences', 'people'
 end

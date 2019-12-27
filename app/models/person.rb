@@ -5,6 +5,7 @@ class Person < ApplicationRecord
   has_many :users, through: :relationships
 
   has_many :experiences
+  has_many :events
 
   def age
     return nil if birthday.nil?

@@ -28,7 +28,7 @@ class ExperiencesController < ApplicationController
 
     respond_to do |format|
       if @experience.save
-        format.html { redirect_to user_person_experience_path(the_user, the_person, @experience), notice: 'Experience was successfully created.' }
+        format.html { redirect_to user_person_path(the_user, the_person), notice: 'Experience was successfully created.' }
         format.json { render :show, status: :created, location: @experience }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ExperiencesController < ApplicationController
   def update
     respond_to do |format|
       if @experience.update(experience_params)
-        format.html { redirect_to user_person_experience_path(the_user, the_person, @experience), notice: 'Experience was successfully updated.' }
+        format.html { redirect_to user_person_path(the_user, the_person), notice: 'Experience was successfully updated.' }
         format.json { render :show, status: :ok, location: @experience }
       else
         format.html { render edit_user_person_experience_path(the_user, the_person, @experience) }
@@ -56,7 +56,7 @@ class ExperiencesController < ApplicationController
   def destroy
     @experience.destroy
     respond_to do |format|
-      format.html { redirect_to user_person_experiences_path(the_user, the_person), notice: 'Experience was successfully destroyed.' }
+      format.html { redirect_to user_person_path(the_user, the_person), notice: 'Experience was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -66,14 +66,6 @@ class ExperiencesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_experience
     @experience ||= the_person.experiences.find(params[:id])
-  end
-
-  def the_person
-    @person ||= the_user.people.find(params[:person_id])
-  end
-
-  def the_user
-    @user ||= User.find(params[:user_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
