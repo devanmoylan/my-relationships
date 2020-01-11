@@ -1,4 +1,8 @@
-<%= form_with(model: [ @user, person ], local: true) do |form| %>
+<%# user to person [ @user, person ] %>
+<%# user to person [ @user, @person, person ] %>
+<% array = @person.nil? ? [ @user, person ] : [ @user, @person, person ] %>
+
+<%= form_with(model: array, local: true) do |form| %>
   <% if person.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
