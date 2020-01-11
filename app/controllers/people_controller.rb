@@ -2,7 +2,7 @@
 
 class PeopleController < ApplicationController
   before_action :set_user, only: %i[show new create edit update destroy index]
-  before_action :set_person, only: %i[show edit update destroy]
+  before_action :set_person, only: %i[update]
 
   # GET /people
   # GET /people.json
@@ -12,28 +12,52 @@ class PeopleController < ApplicationController
 
   # GET /people/1
   # GET /people/1.json
-  def show; end
+  def show
+    if params[:person_id]
+      connection = Person.find(params[:person_id])
+      @person = connection.connections.find(params[:id])
+    else
+      @person = @user.people.find(params[:id])
+    end
+  end
 
   # GET /people/new
   def new
-    @person = @user.people.build
+    if params[:person_id]
+      @person = Person.find(params[:person_id])
+      @new_person = @person.connections.build
+    else
+      @new_person = @user.people.build
+    end
   end
 
   # GET /people/1/edit
-  def edit; end
+  def edit
+    if params[:person_id]
+      @connection = Person.find(params[:person_id])
+      @person = @connection.connections.find(params[:id])
+    else
+      @person = @user.people.find(params[:id])
+    end
+  end
 
   # POST /people
   # POST /people.json
   def create
-    @person = @user.people.create!(person_params)
+    if params[:person_id]
+      @person = Person.find(params[:person_id])
+      @new_person = @person.connections.create!(person_params)
+    else
+      @new_person = @user.people.create!(person_params)
+    end
 
     respond_to do |format|
-      if @person.persisted?
+      if @new_person.persisted?
         format.html { redirect_to user_people_path(@user), notice: 'Person was successfully created.' }
-        format.json { render :show, status: :created, location: @person }
+        format.json { render :show, status: :created, location: @new_person }
       else
         format.html { render new_user_person_path(@user) }
-        format.json { render jason: @person.errors, status: :unprocessable_entity }
+        format.json { render jason: @new_person.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,6 +79,13 @@ class PeopleController < ApplicationController
   # DELETE /people/1
   # DELETE /people/1.json
   def destroy
+    if params[:person_id]
+      connection = Person.find(params[:person_id])
+      @person = connection.connections.find(params[:id])
+    else
+      @person = @user.people.find(params[:id])
+    end
+
     @person.destroy
     respond_to do |format|
       format.html { redirect_to user_people_path(@user), notice: 'Person was successfully destroyed.' }
