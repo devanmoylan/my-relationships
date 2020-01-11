@@ -16,6 +16,6 @@ class Person < ApplicationRecord
   def age
     return nil if birthday.nil?
 
-    Date.today.year - birthday.year
+    ((Date.today - birthday)/365.25).to_i
   end
 end
