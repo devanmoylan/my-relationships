@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_27_004108) do
+ActiveRecord::Schema.define(version: 2020_01_11_174501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "connections", force: :cascade do |t|
+    t.integer "user_one_id"
+    t.integer "user_two_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_one_id", "user_two_id"], name: "index_connections_on_user_one_id_and_user_two_id"
+  end
+
   create_table "events", force: :cascade do |t|
-    t.integer "person_id", null: false
+    t.bigint "person_id", null: false
     t.date "date"
     t.integer "duration"
     t.string "role"
@@ -41,6 +49,13 @@ ActiveRecord::Schema.define(version: 2019_12_27_004108) do
     t.index ["person_id"], name: "index_experiences_on_person_id"
   end
 
+  create_table "links", id: false, force: :cascade do |t|
+    t.bigint "person_one_id"
+    t.bigint "person_two_id"
+    t.index ["person_one_id"], name: "index_links_on_person_one_id"
+    t.index ["person_two_id"], name: "index_links_on_person_two_id"
+  end
+
   create_table "people", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -50,10 +65,12 @@ ActiveRecord::Schema.define(version: 2019_12_27_004108) do
   end
 
   create_table "relationships", id: false, force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "linkable_id"
+    t.string "linkable_type"
     t.bigint "person_id"
-    t.index ["person_id"], name: "index_relationships_on_person_id"
-    t.index ["user_id"], name: "index_relationships_on_user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["linkable_type", "linkable_id", "person_id"], name: "index_relationships_links"
   end
 
   create_table "users", force: :cascade do |t|
