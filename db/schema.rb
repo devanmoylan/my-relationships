@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(version: 2020_01_11_174501) do
   enable_extension "plpgsql"
 
   create_table "connections", force: :cascade do |t|
-    t.integer "user_one_id"
-    t.integer "user_two_id"
+    t.integer "person_one_id"
+    t.integer "person_two_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_one_id", "user_two_id"], name: "index_connections_on_user_one_id_and_user_two_id"
+    t.index ["person_one_id", "person_two_id"], name: "index_connections_on_person_one_id_and_person_two_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -65,12 +65,10 @@ ActiveRecord::Schema.define(version: 2020_01_11_174501) do
   end
 
   create_table "relationships", id: false, force: :cascade do |t|
-    t.bigint "linkable_id"
-    t.string "linkable_type"
+    t.bigint "user_id"
     t.bigint "person_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["linkable_type", "linkable_id", "person_id"], name: "index_relationships_links"
+    t.index ["person_id"], name: "index_relationships_on_person_id"
+    t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
