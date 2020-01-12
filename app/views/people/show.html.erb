@@ -33,7 +33,7 @@
   </thead>
 
   <tbody>
-  <% @person.connections.each do |friend| %>
+  <% @person.all_connections.each do |friend| %>
     <tr>
       <td><%= friend.first_name %></td>
       <td><%= friend.last_name %></td>
