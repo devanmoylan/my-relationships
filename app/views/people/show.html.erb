@@ -18,8 +18,6 @@
 <%= link_to 'Edit', edit_user_person_path(@user, @person) %> |
 <%= link_to 'Back', user_people_path(@user) %>
 
-<p id="notice"><%= notice %></p>
-
 <h1>Connections</h1>
 
 <table>
@@ -85,8 +83,6 @@
 
 <%= link_to 'New Experience', new_user_person_experience_path(@user, @person) %>
 
-<p id="notice"><%= notice %></p>
-
 <h1>Events</h1>
 
 <table>
@@ -124,4 +120,34 @@
 <br>
 
 <%= link_to 'New Event', new_user_person_event_path(@user, @person) %>
+
+<h1>Interests</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Level</th>
+    <th>Person</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @person.interests.each do |interest| %>
+    <tr>
+      <td><%= interest.name %></td>
+      <td><%= interest.level %></td>
+      <td><%= interest.person_id %></td>
+      <td><%= link_to 'Show', user_person_interest_path(@user, @person, interest) %></td>
+      <td><%= link_to 'Edit', edit_user_person_interest_path(@user, @person, interest) %></td>
+      <td><%= link_to 'Destroy', user_person_interest_path(@user, @person, interest), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Interest', new_user_person_interest_path(@user, @person) %>
 

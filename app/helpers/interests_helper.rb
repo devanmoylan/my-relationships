@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-module ConnectionsHelper
+module InterestsHelper
 end
