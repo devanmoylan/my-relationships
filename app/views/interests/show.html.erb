@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @interest.name %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @interest.level %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @interest.person_id %>
+</p>
+
+<%= link_to 'Edit', edit_user_person_interest_path(@user, @person, @interest) %> |
+<%= link_to 'Back', user_person_path(@user, @person) %>
