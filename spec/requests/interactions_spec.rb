@@ -5,7 +5,8 @@ require 'rails_helper'
 RSpec.describe 'Interactions', type: :request do
   describe 'GET /interactions' do
     it 'works! (now write some real specs)' do
-      get interactions_path
+      user = FactoryBot.create(:user)
+      get user_person_path(user, user.people.first)
       expect(response).to have_http_status(200)
     end
   end

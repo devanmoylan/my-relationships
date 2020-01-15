@@ -30,45 +30,38 @@ RSpec.describe InteractionsController, type: :controller do
   # Interaction. As you add validations to Interaction, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
+    {
+    notes: 'My note',
+    key_take_aways: 'My key take away',
+    follow_ups: 'My follow up',
+    location: 'the location',
+    private_interaction: false
+    }
   end
 
   let(:invalid_attributes) do
     skip('Add a hash of attributes invalid for your model')
   end
 
+  let(:user) { FactoryBot.create(:user) }
+  let(:person) { user.people.first }
+
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # InteractionsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe 'GET #index' do
-    it 'returns a success response' do
-      Interaction.create! valid_attributes
-      get :index, params: {}, session: valid_session
-      expect(response).to be_successful
-    end
-  end
-
-  describe 'GET #show' do
-    it 'returns a success response' do
-      interaction = Interaction.create! valid_attributes
-      get :show, params: { id: interaction.to_param }, session: valid_session
-      expect(response).to be_successful
-    end
-  end
-
   describe 'GET #new' do
     it 'returns a success response' do
-      get :new, params: {}, session: valid_session
+      get :new, params: { user_id: user.id, person_id: person.id }, session: valid_session
       expect(response).to be_successful
     end
   end
 
   describe 'GET #edit' do
     it 'returns a success response' do
-      interaction = Interaction.create! valid_attributes
-      get :edit, params: { id: interaction.to_param }, session: valid_session
+      interaction = Interaction.create! user_id: user.id, person_id: person.id, **valid_attributes
+      get :edit, params: {  user_id: user.id, person_id: person.id, id: interaction.to_param }, session: valid_session
       expect(response).to be_successful
     end
   end
@@ -77,19 +70,19 @@ RSpec.describe InteractionsController, type: :controller do
     context 'with valid params' do
       it 'creates a new Interaction' do
         expect do
-          post :create, params: { interaction: valid_attributes }, session: valid_session
+          post :create, params: {  user_id: user.id, person_id: person.id, interaction: valid_attributes }, session: valid_session
         end.to change(Interaction, :count).by(1)
       end
 
       it 'redirects to the created interaction' do
-        post :create, params: { interaction: valid_attributes }, session: valid_session
-        expect(response).to redirect_to(Interaction.last)
+        post :create, params: { user_id: user.id, person_id: person.id, interaction: valid_attributes }, session: valid_session
+        expect(response).to redirect_to user_person_path(user, person)
       end
     end
 
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: { interaction: invalid_attributes }, session: valid_session
+        post :create, params: { user_id: user.id, person_id: person.id, interaction: invalid_attributes }, session: valid_session
         expect(response).to be_successful
       end
     end
@@ -98,27 +91,29 @@ RSpec.describe InteractionsController, type: :controller do
   describe 'PUT #update' do
     context 'with valid params' do
       let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
+        {
+          location: 'Basel'
+        }
       end
 
       it 'updates the requested interaction' do
-        interaction = Interaction.create! valid_attributes
-        put :update, params: { id: interaction.to_param, interaction: new_attributes }, session: valid_session
+        interaction = Interaction.create! user_id: user.id, person_id: person.id, **valid_attributes
+        put :update, params: { user_id: user.id, person_id: person.id, id: interaction.to_param, interaction: new_attributes }, session: valid_session
         interaction.reload
-        skip('Add assertions for updated state')
+        expect(interaction.location).to eq(new_attributes[:location])
       end
 
       it 'redirects to the interaction' do
-        interaction = Interaction.create! valid_attributes
-        put :update, params: { id: interaction.to_param, interaction: valid_attributes }, session: valid_session
-        expect(response).to redirect_to(interaction)
+        interaction = Interaction.create! user_id: user.id, person_id: person.id, **valid_attributes
+        put :update, params: { user_id: user.id, person_id: person.id, id: interaction.to_param, interaction: valid_attributes }, session: valid_session
+        expect(response).to redirect_to user_person_path(user, person)
       end
     end
 
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'edit' template)" do
-        interaction = Interaction.create! valid_attributes
-        put :update, params: { id: interaction.to_param, interaction: invalid_attributes }, session: valid_session
+        interaction = Interaction.create! user_id: user.id, person_id: person.id, **valid_attributes
+        put :update, params: { user_id: user.id, person_id: person.id, id: interaction.to_param, interaction: invalid_attributes }, session: valid_session
         expect(response).to be_successful
       end
     end
@@ -126,16 +121,16 @@ RSpec.describe InteractionsController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'destroys the requested interaction' do
-      interaction = Interaction.create! valid_attributes
+      interaction = Interaction.create! user_id: user.id, person_id: person.id, **valid_attributes
       expect do
-        delete :destroy, params: { id: interaction.to_param }, session: valid_session
+        delete :destroy, params: { user_id: user.id, person_id: person.id, id: interaction.to_param }, session: valid_session
       end.to change(Interaction, :count).by(-1)
     end
 
     it 'redirects to the interactions list' do
-      interaction = Interaction.create! valid_attributes
-      delete :destroy, params: { id: interaction.to_param }, session: valid_session
-      expect(response).to redirect_to(interactions_url)
+      interaction = Interaction.create! user_id: user.id, person_id: person.id, **valid_attributes
+      delete :destroy, params: { user_id: user.id, person_id: person.id, id: interaction.to_param }, session: valid_session
+      expect(response).to redirect_to user_person_path(user, person)
     end
   end
 end

@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :interaction do
-    person { nil }
-    user { nil }
+    person
+    user
     notes { 'MyText' }
     key_take_aways { 'MyText' }
     follow_ups { 'MyText' }
