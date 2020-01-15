@@ -33,7 +33,7 @@ RSpec.describe InterestsController, type: :controller do
     {
       name: 'Fishing',
       level: 8,
-      person: person,
+      person: person
     }
   end
 
@@ -68,19 +68,19 @@ RSpec.describe InterestsController, type: :controller do
     context 'with valid params' do
       it 'creates a new Interest' do
         expect do
-          post :create, params: { interest: valid_attributes }, session: valid_session
+          post :create, params: { user_id: user.id, person_id: person.id, interest: valid_attributes }, session: valid_session
         end.to change(Interest, :count).by(1)
       end
 
       it 'redirects to the created interest' do
-        post :create, params: { interest: valid_attributes }, session: valid_session
-        expect(response).to redirect_to(Interest.last)
+        post :create, params: { user_id: user.id, person_id: person.id, interest: valid_attributes }, session: valid_session
+        expect(response).to redirect_to user_person_path(user, person)
       end
     end
 
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: { interest: invalid_attributes }, session: valid_session
+        post :create, params: { user_id: user.id, person_id: person.id, interest: invalid_attributes }, session: valid_session
         expect(response).to be_successful
       end
     end
@@ -89,27 +89,29 @@ RSpec.describe InterestsController, type: :controller do
   describe 'PUT #update' do
     context 'with valid params' do
       let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
+        {
+          name: 'Night fishing'
+        }
       end
 
       it 'updates the requested interest' do
         interest = Interest.create! valid_attributes
-        put :update, params: { id: interest.to_param, interest: new_attributes }, session: valid_session
+        put :update, params: { user_id: user.id, person_id: person.id, id: interest.to_param, interest: new_attributes }, session: valid_session
         interest.reload
-        skip('Add assertions for updated state')
+        expect(interest.name).to eq(new_attributes[:name])
       end
 
       it 'redirects to the interest' do
         interest = Interest.create! valid_attributes
-        put :update, params: { id: interest.to_param, interest: valid_attributes }, session: valid_session
-        expect(response).to redirect_to(interest)
+        put :update, params: { user_id: user.id, person_id: person.id, id: interest.to_param, interest: valid_attributes }, session: valid_session
+        expect(response).to redirect_to user_person_path(user, person)
       end
     end
 
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'edit' template)" do
         interest = Interest.create! valid_attributes
-        put :update, params: { id: interest.to_param, interest: invalid_attributes }, session: valid_session
+        put :update, params: { user_id: user.id, person_id: person.id, id: interest.to_param, interest: invalid_attributes }, session: valid_session
         expect(response).to be_successful
       end
     end
@@ -119,14 +121,14 @@ RSpec.describe InterestsController, type: :controller do
     it 'destroys the requested interest' do
       interest = Interest.create! valid_attributes
       expect do
-        delete :destroy, params: { id: interest.to_param }, session: valid_session
+        delete :destroy, params: { user_id: user.id, person_id: person.id, id: interest.to_param }, session: valid_session
       end.to change(Interest, :count).by(-1)
     end
 
     it 'redirects to the interests list' do
       interest = Interest.create! valid_attributes
-      delete :destroy, params: { id: interest.to_param }, session: valid_session
-      expect(response).to redirect_to(interests_url)
+      delete :destroy, params: { user_id: user.id, person_id: person.id, id: interest.to_param }, session: valid_session
+      expect(response).to redirect_to user_person_path(user, person)
     end
   end
 end

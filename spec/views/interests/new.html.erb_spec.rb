@@ -2,14 +2,14 @@
 
 require 'rails_helper'
 
-RSpec.describe "users/:user_id/people/:person_id/interests/new", type: :view do
+RSpec.describe 'users/:user_id/people/:person_id/interests/new', type: :view do
   before(:each) do
     assign(:interest, FactoryBot.create(
-      :interest,
-      name: 'Dancing',
-      level: 2,
-      person: FactoryBot.create(:user).people.first
-    ))
+                        :interest,
+                        name: 'Dancing',
+                        level: 2,
+                        person: FactoryBot.create(:user).people.first
+                      ))
   end
 
   it 'renders new interest form' do
