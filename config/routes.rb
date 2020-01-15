@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :people do
       resources :experiences
       resources :events
+      resources :interactions
       resources :interests
       resources :people
     end
