@@ -19,9 +19,9 @@ class ExperiencesController < ApplicationController
     respond_to do |format|
       if @experience.save
         format.html { redirect_to user_person_path(the_user, the_person), notice: 'Experience was successfully created.' }
-        format.json { render :show, status: :created, location: @experience }
+        format.json { render user_person_path(the_user, the_person), status: :created, location: @experience }
       else
-        format.html { render :new }
+        format.html { render new_user_person_path(the_user) }
         format.json { render json: @experience.errors, status: :unprocessable_entity }
       end
     end
@@ -33,7 +33,7 @@ class ExperiencesController < ApplicationController
     respond_to do |format|
       if @experience.update(experience_params)
         format.html { redirect_to user_person_path(the_user, the_person), notice: 'Experience was successfully updated.' }
-        format.json { render :show, status: :ok, location: @experience }
+        format.json { render user_person_path(the_user, the_person), status: :ok, location: @experience }
       else
         format.html { render edit_user_person_experience_path(the_user, the_person, @experience) }
         format.json { render json: @experience.errors, status: :unprocessable_entity }

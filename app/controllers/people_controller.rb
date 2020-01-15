@@ -53,11 +53,11 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @new_person.persisted?
-        format.html { redirect_to user_people_path(@user), notice: 'Person was successfully created.' }
-        format.json { render :show, status: :created, location: @new_person }
+        format.html { redirect_to user_person_path(@user, @person), notice: 'Person was successfully created.' }
+        format.json { render user_person_path(@user, @person), status: :created, location: @new_person }
       else
-        format.html { render new_user_person_path(@user) }
-        format.json { render jason: @new_person.errors, status: :unprocessable_entity }
+        format.html { render new_user_person_path(@user, @person) }
+        format.json { render json: @new_person.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -82,13 +82,15 @@ class PeopleController < ApplicationController
     if params[:person_id]
       connection = Person.find(params[:person_id])
       @person = connection.connections.find(params[:id])
+      path = user_person_path(@user, connection)
     else
       @person = @user.people.find(params[:id])
+      path = user_people_path(@user)
     end
 
     @person.destroy
     respond_to do |format|
-      format.html { redirect_to user_people_path(@user), notice: 'Person was successfully destroyed.' }
+      format.html { redirect_to path, notice: 'Person was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

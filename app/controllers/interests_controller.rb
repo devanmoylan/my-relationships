@@ -19,9 +19,9 @@ class InterestsController < ApplicationController
     respond_to do |format|
       if @interest.save
         format.html { redirect_to user_person_path(the_user, the_person), notice: 'Interest was successfully created.' }
-        format.json { render :show, status: :created, location: @interest }
+        format.json { render user_person_path(the_user, the_person), status: :created, location: @interest }
       else
-        format.html { render :new }
+        format.html { render new_user_person_interest_path(the_user, the_person) }
         format.json { render json: @interest.errors, status: :unprocessable_entity }
       end
     end
@@ -33,7 +33,7 @@ class InterestsController < ApplicationController
     respond_to do |format|
       if @interest.update(interest_params)
         format.html { redirect_to user_person_path(the_user, the_person), notice: 'Interest was successfully updated.' }
-        format.json { render :show, status: :ok, location: @interest }
+        format.json { render user_person_path(the_user, the_person), status: :ok, location: @interest }
       else
         format.html { render edit_user_person_interest_path(the_user, the_person, @interest) }
         format.json { render json: @interest.errors, status: :unprocessable_entity }
