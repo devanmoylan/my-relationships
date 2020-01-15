@@ -1,17 +1,7 @@
 # frozen_string_literal: true
 
 class ExperiencesController < ApplicationController
-  before_action :set_experience, only: %i[show edit update destroy]
-
-  # GET /experiences
-  # GET /experiences.json
-  def index
-    @experiences = the_person.experiences
-  end
-
-  # GET /experiences/1
-  # GET /experiences/1.json
-  def show; end
+  before_action :set_experience, only: %i[edit update destroy]
 
   # GET /experiences/new
   def new

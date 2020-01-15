@@ -35,7 +35,6 @@
     <tr>
       <td><%= friend.first_name %></td>
       <td><%= friend.last_name %></td>
-      <td><%= link_to 'Show', user_person_person_path(@user, @person, friend) %></td>
       <td><%= link_to 'Edit', edit_user_person_person_path(@user, @person, friend) %></td>
       <td><%= link_to 'Destroy', user_person_person_path(@user, @person, friend), method: :delete, data: {confirm: 'Are you sure?' } %></td>
     </tr>
@@ -71,7 +70,6 @@
       <td><%= experience.location %></td>
       <td><%= experience.description %></td>
       <td><%= experience.role %></td>
-      <td><%= link_to 'Show', user_person_experience_path(@user, @person, experience) %></td>
       <td><%= link_to 'Edit', edit_user_person_experience_path(@user, @person, experience) %></td>
       <td><%= link_to 'Destroy', user_person_experience_path(@user, @person, experience), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
@@ -109,7 +107,6 @@
       <td><%= event.description %></td>
       <td><%= event.title %></td>
       <td><%= event.location %></td>
-      <td><%= link_to 'Show', user_person_event_path(@user, @person, event) %></td>
       <td><%= link_to 'Edit', edit_user_person_event_path(@user, @person, event) %></td>
       <td><%= link_to 'Destroy', user_person_event_path(@user, @person, event), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
@@ -139,7 +136,6 @@
       <td><%= interest.name %></td>
       <td><%= interest.level %></td>
       <td><%= interest.person_id %></td>
-      <td><%= link_to 'Show', user_person_interest_path(@user, @person, interest) %></td>
       <td><%= link_to 'Edit', edit_user_person_interest_path(@user, @person, interest) %></td>
       <td><%= link_to 'Destroy', user_person_interest_path(@user, @person, interest), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>

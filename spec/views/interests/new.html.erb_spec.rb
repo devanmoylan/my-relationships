@@ -2,24 +2,23 @@
 
 require 'rails_helper'
 
-RSpec.describe 'interests/new', type: :view do
+RSpec.describe "users/:user_id/people/:person_id/interests/new", type: :view do
   before(:each) do
-    assign(:interest, Interest.new(
-                        name: 'MyString',
-                        level: 1,
-                        person: nil
-                      ))
+    assign(:interest, FactoryBot.create(
+      :interest,
+      name: 'Dancing',
+      level: 2,
+      person: FactoryBot.create(:user).people.first
+    ))
   end
 
   it 'renders new interest form' do
     render
 
-    assert_select 'form[action=?][method=?]', interests_path, 'post' do
+    assert_select 'form[action=?][method=?]', user_person_interests_path(User.last, Person.last), 'post' do
       assert_select 'input[name=?]', 'interest[name]'
 
       assert_select 'input[name=?]', 'interest[level]'
-
-      assert_select 'input[name=?]', 'interest[person_id]'
     end
   end
 end

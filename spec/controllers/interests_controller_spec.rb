@@ -30,7 +30,11 @@ RSpec.describe InterestsController, type: :controller do
   # Interest. As you add validations to Interest, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
+    {
+      name: 'Fishing',
+      level: 8,
+      person: person,
+    }
   end
 
   let(:invalid_attributes) do
@@ -45,25 +49,9 @@ RSpec.describe InterestsController, type: :controller do
   # InterestsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe 'GET #index' do
-    it 'returns a success response' do
-      Interest.create! valid_attributes
-      get :index, params: {}, session: valid_session
-      expect(response).to be_successful
-    end
-  end
-
-  describe 'GET #show' do
-    it 'returns a success response' do
-      interest = Interest.create! valid_attributes
-      get :show, params: { id: interest.to_param }, session: valid_session
-      expect(response).to be_successful
-    end
-  end
-
   describe 'GET #new' do
     it 'returns a success response' do
-      get new_user_person_interest_path(user.id, person.id), params: { }, session: valid_session
+      get :new, params: { user_id: user.id, person_id: person.id }, session: valid_session
       expect(response).to be_successful
     end
   end
@@ -71,7 +59,7 @@ RSpec.describe InterestsController, type: :controller do
   describe 'GET #edit' do
     it 'returns a success response' do
       interest = Interest.create! valid_attributes
-      get :edit, params: { id: interest.to_param }, session: valid_session
+      get :edit, params: { user_id: user.id, person_id: person.id, id: interest.to_param }, session: valid_session
       expect(response).to be_successful
     end
   end

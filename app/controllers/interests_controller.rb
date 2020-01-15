@@ -1,17 +1,7 @@
 # frozen_string_literal: true
 
 class InterestsController < ApplicationController
-  before_action :set_interest, only: %i[show edit update destroy]
-
-  # GET /interests
-  # GET /interests.json
-  def index
-    @interests = the_person.interests
-  end
-
-  # GET /interests/1
-  # GET /interests/1.json
-  def show; end
+  before_action :set_interest, only: %i[edit update destroy]
 
   # GET /interests/new
   def new
