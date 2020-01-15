@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Interests', type: :request do
-  describe 'GET /interests' do
+RSpec.describe 'Interactions', type: :request do
+  describe 'GET /interactions' do
     it 'works! (now write some real specs)' do
       user = FactoryBot.create(:user)
       get user_person_path(user, user.people.first)

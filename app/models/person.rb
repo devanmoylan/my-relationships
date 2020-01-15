@@ -6,6 +6,7 @@ class Person < ApplicationRecord
 
   has_many :experiences, dependent: :destroy
   has_many :events, dependent: :destroy
+  has_many :interactions, dependent: :destroy
   has_many :interests, dependent: :destroy
 
   # PERSON to PERSON

@@ -1,0 +1,42 @@
+<%= form_with(model: [@user, @person, interaction], local: true) do |form| %>
+  <% if interaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(interaction.errors.count, "error") %> prohibited this interaction from being saved:</h2>
+
+      <ul>
+        <% interaction.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :key_take_aways %>
+    <%= form.text_area :key_take_aways %>
+  </div>
+
+  <div class="field">
+    <%= form.label :follow_ups %>
+    <%= form.text_area :follow_ups %>
+  </div>
+
+  <div class="field">
+    <%= form.label :private_interaction %>
+    <%= form.check_box :private_interaction %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
