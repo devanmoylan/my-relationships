@@ -2,7 +2,9 @@
 
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable, :lockable, :timeoutable, :trackable
+         :recoverable, :rememberable, :validatable, :lockable, :timeoutable, :trackable
+
+  # :confirmable
 
   has_many :interactions
   has_many :relationships, join_table: 'relationships', class_name: 'Relationship'
