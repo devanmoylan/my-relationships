@@ -38,16 +38,26 @@
         <div class="card-body">
           <h5 class="card-title"><%= interaction.location %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= interaction.created_at.strftime("%B %-d, %Y") %></h6>
-          <table>
-            <% interaction.attributes.each do |k, v| %>
+          <br>
+          <table class="table table-hover">
+            <tbody>
               <tr>
-                <th><%= k %></th>
-                <td><%= v %></td>
+                <th>notes:</th>
+                <td><%= interaction.notes %></td>
               </tr>
-            <% end %>
-            <td></td>
+              <tr>
+                <th>key take aways:</th>
+                <td><%= interaction.key_take_aways %></td>
+              </tr>
+              <tr>
+                <th>follow ups:</th>
+                <td><%= interaction.follow_ups %></td>
+              </tr>
+            </tbody>
           </table>
-          <%= link_to 'Edit', edit_user_person_interaction_path(@user, @person, interaction) %> | <%= link_to 'Destroy', user_person_interaction_path(@user, @person, interaction), method: :delete, data: {confirm: 'Are you sure?'} %>
+          <br>
+          <%= link_to 'Edit', edit_user_person_interaction_path(@user, @person, interaction) %>
+          | <%= link_to 'Destroy', user_person_interaction_path(@user, @person, interaction), method: :delete, data: {confirm: 'Are you sure?'} %>
         </div>
       </div>
     <% end %>
@@ -102,8 +112,8 @@
       <% @person.experiences.order(end_date: :desc).each do |experience| %>
         <tr>
           <td><%= experience.experience_type %></td>
-          <td><%= experience.start_date %></td>
-          <td><%= experience.end_date %></td>
+          <td><%= experience.start_date.strftime("%B %Y") %></td>
+          <td><%= experience.current? ? 'current' : experience.end_date.strftime("%B %Y") %></td>
           <td><%= experience.location %></td>
           <td><%= experience.description %></td>
           <td><%= experience.role %></td>
