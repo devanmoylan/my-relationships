@@ -2,7 +2,7 @@
 <div class="jumbotron">
   <div class="row">
     <div class="col-3">
-      <%= image_tag avatar(@person, 200), class: 'rounded' %>
+      <%= image_tag url_for(avatar(@person, 200)), class: 'rounded' %>
     </div>
     <div class="col-9">
       <h1>Person</h1>
@@ -92,7 +92,7 @@
       <div class="card-body">
         <% @person.experiences.order(end_date: :desc).each do |experience| %>
           <h5 class="card-title"><%= experience.role %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= "#{experience.start_date.strftime("%B %Y")} + #{experience.current? ? 'current' : experience.end_date.strftime("%B %Y")}"  %></h6>
+          <h6 class="card-subtitle mb-2 text-muted"><%= "#{experience.start_date.strftime("%B %Y")} - #{experience.current? ? 'current' : experience.end_date.strftime("%B %Y")}"  %></h6>
           <hr>
           <table>
             <tbody>
