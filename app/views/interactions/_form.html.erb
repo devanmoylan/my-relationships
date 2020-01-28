@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :notes %>
-    <%= form.text_area :notes %>
+    <%= form.rich_text_area :notes, data: { controller: "mentions", target: "mentions.field" } %>
   </div>
 
   <div class="field">
