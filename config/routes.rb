@@ -12,4 +12,6 @@ Rails.application.routes.draw do
       resources :people
     end
   end
+
+  resources :mentions, only: [:index]
 end
