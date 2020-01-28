@@ -1,10 +1,10 @@
 <%= link_to '< People', user_people_path(@user) %>
 <div class="jumbotron">
   <div class="row">
-    <div class="col-2">
+    <div class="col-3">
       <%= image_tag avatar(@person, 200), class: 'rounded' %>
     </div>
-    <div class="col-10">
+    <div class="col-9">
       <h1>Person</h1>
       <p>
         <strong>First name:</strong>
@@ -27,28 +27,28 @@
 </div>
 <div class="row">
   <div class="col-8">
-    <h2>Interactions</h2> <%= link_to 'New Interaction', new_user_person_interaction_path(@user, @person) %>
+    <h2>Interactions</h2>
+    <%= link_to 'New Interaction', new_user_person_interaction_path(@user, @person) %>
 
     <br>
     <br>
 
     <% @person.interactions.each do |interaction| %>
       <div class="card" style="padding:20px">
-        <table>
-          <thead>
-          <tr>
-            <th><%= interaction.created_at %></th>
-          </tr>
-          </thead>
-          <% interaction.attributes.each do |k, v| %>
-            <tr>
-              <th><%= k %></th>
-              <td><%= v %></td>
-            </tr>
-          <% end %>
-          <td></td>
-        </table>
-        <%= link_to 'Edit', edit_user_person_interaction_path(@user, @person, interaction) %> <%= link_to 'Destroy', user_person_interaction_path(@user, @person, interaction), method: :delete, data: {confirm: 'Are you sure?'} %>
+        <div class="card-body">
+          <h5 class="card-title"><%= interaction.location %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= interaction.created_at.strftime("%B %-d, %Y") %></h6>
+          <table>
+            <% interaction.attributes.each do |k, v| %>
+              <tr>
+                <th><%= k %></th>
+                <td><%= v %></td>
+              </tr>
+            <% end %>
+            <td></td>
+          </table>
+          <%= link_to 'Edit', edit_user_person_interaction_path(@user, @person, interaction) %> | <%= link_to 'Destroy', user_person_interaction_path(@user, @person, interaction), method: :delete, data: {confirm: 'Are you sure?'} %>
+        </div>
       </div>
     <% end %>
   </div>
