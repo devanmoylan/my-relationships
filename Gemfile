@@ -30,8 +30,9 @@ gem 'image_processing', '~> 1.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-gem 'rubocop'
 gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
+gem 'name_of_person'
+gem 'rubocop'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

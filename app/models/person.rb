@@ -3,6 +3,8 @@
 class Person < ApplicationRecord
   include ActionText::Attachable
 
+  has_person_name
+
   has_one_attached :avatar
 
   has_many :relationships, join_table: 'relationships', class_name: 'Relationship'

@@ -31,11 +31,11 @@ RSpec.describe InteractionsController, type: :controller do
   # adjust the attributes here as well.
   let(:valid_attributes) do
     {
-    notes: 'My note',
-    key_take_aways: 'My key take away',
-    follow_ups: 'My follow up',
-    location: 'the location',
-    private_interaction: false
+      notes: 'My note',
+      key_take_aways: 'My key take away',
+      follow_ups: 'My follow up',
+      location: 'the location',
+      private_interaction: false
     }
   end
 
@@ -61,7 +61,7 @@ RSpec.describe InteractionsController, type: :controller do
   describe 'GET #edit' do
     it 'returns a success response' do
       interaction = Interaction.create! user_id: user.id, person_id: person.id, **valid_attributes
-      get :edit, params: {  user_id: user.id, person_id: person.id, id: interaction.to_param }, session: valid_session
+      get :edit, params: { user_id: user.id, person_id: person.id, id: interaction.to_param }, session: valid_session
       expect(response).to be_successful
     end
   end
