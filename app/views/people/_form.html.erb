@@ -15,6 +15,17 @@
     </div>
   <% end %>
 
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-4">
+        <%= image_tag avatar(person, 100), class: 'rounded' %>
+      </div>
+      <div class="col-sm-8">
+        <%= form.file_field :avatar %>
+      </div>
+    </div>
+  </div>
+
   <div class="field">
     <%= form.label :first_name %>
     <%= form.text_field :first_name %>
