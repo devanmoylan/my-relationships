@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="60488332-385c-4139-b535-a6a28040d8cf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/models/interaction.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/interaction.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/interactions/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/interactions/_form.html.erb" afterDir="false" />
-    </list>
+    <list default="true" id="60488332-385c-4139-b535-a6a28040d8cf" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
     <ignored path="$PROJECT_DIR$/log/" />
@@ -68,8 +65,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/interactions/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+            <state relative-caret-position="330">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -418,12 +415,12 @@
       <workItem from="1578687756778" duration="466000" />
       <workItem from="1579118026296" duration="2581000" />
       <workItem from="1580175417081" duration="3975000" />
-      <workItem from="1580228799007" duration="8045000" />
+      <workItem from="1580228799007" duration="8188000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53405000" />
+    <option name="totallyTimeSpent" value="53548000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3771" y="160" width="1440" height="794" extended-state="0" />
@@ -823,8 +820,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/interactions/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+        <state relative-caret-position="330">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
