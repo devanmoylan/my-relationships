@@ -1,22 +1,29 @@
+<%= link_to '< People', user_people_path(@user) %>
 <div class="jumbotron">
-  <%= link_to '< People', user_people_path(@user) %>
-  <h1>Person</h1>
-  <p>
-    <strong>First name:</strong>
-    <%= @person.first_name %>
-  </p>
+  <div class="row">
+    <div class="col-2">
+      <%= image_tag avatar(@person, 100), class: 'rounded' %>
+    </div>
+    <div class="col-10">
+      <h1>Person</h1>
+      <p>
+        <strong>First name:</strong>
+        <%= @person.first_name %>
+      </p>
 
-  <p>
-    <strong>Last name:</strong>
-    <%= @person.last_name %>
-  </p>
+      <p>
+        <strong>Last name:</strong>
+        <%= @person.last_name %>
+      </p>
 
-  <p>
-    <strong>Birthday:</strong>
-    <%= @person.birthday %> <%= "(age: ~#{@person.age})" if @person.age %>
-  </p>
+      <p>
+        <strong>Birthday:</strong>
+        <%= @person.birthday %> <%= "(age: ~#{@person.age})" if @person.age %>
+      </p>
 
-  <%= link_to 'Edit', edit_user_person_path(@user, @person) %>
+      <%= link_to 'Edit', edit_user_person_path(@user, @person) %>
+    </div>
+  </div>
 </div>
 <div class="row">
   <div class="col-8">
