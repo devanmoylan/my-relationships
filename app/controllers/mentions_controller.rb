@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MentionsController < ApplicationController
   def index
     @people = Person.all

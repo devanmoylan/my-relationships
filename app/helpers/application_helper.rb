@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-
   def avatar(object, size = 40)
     if object.avatar.attached?
       object.avatar.variant(resize: "#{size}x#{size}!")
