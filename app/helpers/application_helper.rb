@@ -24,4 +24,10 @@ module ApplicationHelper
       max: Date.today
     }
   end
+
+  def age_helper(birthday)
+    return nil if birthday.nil?
+
+    ((Date.today - birthday) / 365.25).to_i
+  end
 end

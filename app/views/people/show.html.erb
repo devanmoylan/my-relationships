@@ -18,7 +18,7 @@
 
       <p>
         <strong>Birthday:</strong>
-        <%= @person.birthday %> <%= "(age: ~#{@person.age})" if @person.age %>
+        <%= @person.birthday %> <%= "(age: ~#{ age_helper(@person.birthday) })" if @person.birthday? %>
       </p>
 
       <%= link_to 'Edit', edit_user_person_path(@user, @person) %>
@@ -67,15 +67,13 @@
 
     <div class="card" style="padding:20px">
       <div class="card-body">
-        <table>
+        <table class="table table-hover">
           <tbody>
           <% @person.bonds.each do |bond| %>
             <tr>
-              <td><%= bond.name %></td>
+              <td><%= bond.name %> <br><%= "age: #{ age_helper(bond.birthday)}" if bond.birthday %></td>
               <td><%= bond.relationship %></td>
-              <td><%= bond.birthday %></td>
-              <td><%= link_to 'Edit', edit_user_person_bond_path(@user, @person, bond) %></td>
-              <td><%= link_to 'Destroy', user_person_bond_path(@user, @person, bond), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Edit', edit_user_person_bond_path(@user, @person, bond) %> <%= link_to 'Destroy', user_person_bond_path(@user, @person, bond), method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
           </tbody>
@@ -98,7 +96,7 @@
           <h5 class="card-title"><%= experience.role %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= "#{experience.start_date.strftime("%B %Y")} - #{experience.current? ? 'current' : experience.end_date.strftime("%B %Y")}"  %></h6>
           <hr>
-          <table>
+          <table class="table table-hover">
             <tbody>
             <tr>
               <td>Type:</td>
@@ -124,7 +122,7 @@
 
     <h2>Events</h2>
 
-    <table>
+    <table class="table table-hover">
       <thead>
       <tr>
         <th>Date</th>
@@ -166,7 +164,7 @@
 
     <div class="card" style="padding:20px">
       <div class="card-body">
-        <table>
+        <table class="table table-hover">
           <tbody>
           <% @person.interests.each do |interest| %>
             <tr>

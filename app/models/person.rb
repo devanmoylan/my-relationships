@@ -15,10 +15,4 @@ class Person < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :interactions, dependent: :destroy
   has_many :interests, dependent: :destroy
-
-  def age
-    return nil if birthday.nil?
-
-    ((Date.today - birthday) / 365.25).to_i
-  end
 end
