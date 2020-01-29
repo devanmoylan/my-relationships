@@ -57,7 +57,10 @@
 
   <div class="col-4">
 
-    <h2>Placeholder</h2>
+
+    <h2>Bonds</h2>
+
+    <%= link_to 'New Bond', new_user_person_bond_path(@user, @person) %>
 
     <br>
     <br>
@@ -66,10 +69,15 @@
       <div class="card-body">
         <table>
           <tbody>
+          <% @person.bonds.each do |bond| %>
             <tr>
-              <td></td>
-              <td></td>
+              <td><%= bond.name %></td>
+              <td><%= bond.relationship %></td>
+              <td><%= bond.birthday %></td>
+              <td><%= link_to 'Edit', edit_user_person_bond_path(@user, @person, bond) %></td>
+              <td><%= link_to 'Destroy', user_person_bond_path(@user, @person, bond), method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
+          <% end %>
           </tbody>
         </table>
       </div>
@@ -151,30 +159,29 @@
 
     <h2>Interests</h2>
 
-    <table>
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th>Level</th>
-        <th colspan="3"></th>
-      </tr>
-      </thead>
-
-      <tbody>
-      <% @person.interests.each do |interest| %>
-        <tr>
-          <td><%= interest.name %></td>
-          <td><%= interest.level %></td>
-          <td><%= link_to 'Edit', edit_user_person_interest_path(@user, @person, interest) %></td>
-          <td><%= link_to 'Destroy', user_person_interest_path(@user, @person, interest), method: :delete, data: {confirm: 'Are you sure?'} %></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
+    <%= link_to 'New Interest', new_user_person_interest_path(@user, @person) %>
 
     <br>
+    <br>
 
-    <%= link_to 'New Interest', new_user_person_interest_path(@user, @person) %>
+    <div class="card" style="padding:20px">
+      <div class="card-body">
+        <table>
+          <tbody>
+          <% @person.interests.each do |interest| %>
+            <tr>
+              <td><%= interest.name %></td>
+              <td><%= interest.level %></td>
+              <td><%= link_to 'Edit', edit_user_person_interest_path(@user, @person, interest) %></td>
+              <td><%= link_to 'Destroy', user_person_interest_path(@user, @person, interest), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <br>
 
   </div>
 </div>

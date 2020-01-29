@@ -17,4 +17,11 @@ module ApplicationHelper
       gravatar_image_url(object.id.to_s, size: size)
     end
   end
+
+  def date_field_min_and_max
+    {
+      min: Date.new(1900, 01, 01),
+      max: Date.today
+    }
+  end
 end
