@@ -53,8 +53,8 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @new_person.persisted?
-        format.html { redirect_to user_person_path(@user, @person), notice: 'Person was successfully created.' }
-        format.json { render user_person_path(@user, @person), status: :created, location: @new_person }
+        format.html { redirect_to user_person_path(@user, @new_person), notice: 'Person was successfully created.' }
+        format.json { render user_person_path(@user, @new_person), status: :created, location: @new_person }
       else
         format.html { render new_user_person_path(@user, @person) }
         format.json { render json: @new_person.errors, status: :unprocessable_entity }
