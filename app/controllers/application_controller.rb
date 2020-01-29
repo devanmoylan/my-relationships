@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def the_person
-    @person ||= the_user.people.find(params[:id])
+    @person ||= the_user.people.find(params[:person_id] || params[:id])
   end
 end
+

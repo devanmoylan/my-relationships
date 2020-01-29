@@ -10,6 +10,7 @@ class Person < ApplicationRecord
   has_many :relationships, join_table: 'relationships', class_name: 'Relationship'
   has_many :users, through: :relationships
 
+  has_many :bonds, dependent: :destroy
   has_many :experiences, dependent: :destroy
   has_many :events, dependent: :destroy
   has_many :interactions, dependent: :destroy
