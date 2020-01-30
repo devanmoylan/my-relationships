@@ -18,13 +18,6 @@ module ApplicationHelper
     end
   end
 
-  def date_field_min_and_max
-    {
-      min: Date.new(1900, 01, 01),
-      max: Date.today
-    }
-  end
-
   def age_helper(birthday)
     return nil if birthday.nil?
 
