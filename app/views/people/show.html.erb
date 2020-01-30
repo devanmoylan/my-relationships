@@ -33,8 +33,8 @@
     <br>
     <br>
 
-    <% @person.interactions.each do |interaction| %>
-      <div class="card" style="padding:20px">
+    <% @person.interactions.order(created_at: :desc).each do |interaction| %>
+      <div class="card" style="padding:20px; margin: 10px 0 10px;">
         <div class="card-body">
           <h5 class="card-title"><%= interaction.location %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= interaction.created_at.strftime("%A %B %-d, %Y") %></h6>
