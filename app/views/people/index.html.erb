@@ -2,7 +2,7 @@
 
 <h1>People</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -12,6 +12,7 @@
   <tbody>
     <% @people.each do |person| %>
       <tr>
+        <td><%= image_tag url_for(avatar(person, 50)), class: 'rounded' %></td>
         <td><%= person.name %></td>
         <td><%= link_to 'Show', user_person_path(@user, person) %></td>
         <td><%= link_to 'Edit', edit_user_person_path(@user, person) %></td>
