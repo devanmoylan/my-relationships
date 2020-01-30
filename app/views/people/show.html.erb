@@ -34,7 +34,7 @@
     <br>
 
     <% @person.interactions.order(created_at: :desc).each do |interaction| %>
-      <div class="card" style="padding:20px; margin: 10px 0 10px;">
+      <div class="card">
         <div class="card-body">
           <h5 class="card-title"><%= interaction.location %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= interaction.created_at.strftime("%A %B %-d, %Y") %></h6>
@@ -65,7 +65,7 @@
     <br>
     <br>
 
-    <div class="card" style="padding:20px">
+    <div class="card">
       <div class="card-body">
         <table>
           <tbody>
@@ -90,7 +90,7 @@
     <br>
     <br>
 
-    <div class="card" style="padding:20px">
+    <div class="card">
       <div class="card-body">
         <% @person.experiences.order(end_date: :desc).each do |experience| %>
           <h5 class="card-title"><%= experience.role %></h5>
@@ -162,7 +162,7 @@
     <br>
     <br>
 
-    <div class="card" style="padding:20px">
+    <div class="card">
       <div class="card-body">
         <table>
           <tbody>
