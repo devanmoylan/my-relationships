@@ -1,0 +1,17 @@
+<div class="nested-fields">
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.rich_text_area :description, data: { controller: "mentions", target: "mentions.field" } %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.datetime_select :date %>
+  </div>
+  <%= link_to_remove_association "remove task", f %>
+</div>

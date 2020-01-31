@@ -35,6 +35,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
 gem 'name_of_person'
 gem 'rubocop'
+gem "cocoon"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
