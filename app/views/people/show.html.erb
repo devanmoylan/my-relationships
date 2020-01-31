@@ -36,18 +36,12 @@
     <% @person.interactions.order(created_at: :desc).each do |interaction| %>
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title"><%= interaction.location %></h5>
+          <h5 class="card-title"><%= interaction.title %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= interaction.created_at.strftime("%A %B %-d, %Y") %></h6>
-          <br>
-          <table class="table table-hover">
-            <tbody>
-            <tr>
-              <td>notes:</td>
-              <td><%= interaction.notes %></td>
-            </tr>
-            </tbody>
-          </table>
-          <br>
+          <hr>
+          <p class="card-text"><%= interaction.notes %></p>
+          <p class="card-text"><%= "Location: #{interaction.location}" if interaction.location%></p>
+          <hr>
           <%= link_to 'Edit', edit_user_person_interaction_path(@user, @person, interaction) %>
           | <%= link_to 'Destroy', user_person_interaction_path(@user, @person, interaction), method: :delete, data: {confirm: 'Are you sure?'} %>
         </div>
@@ -57,6 +51,24 @@
 
   <div class="col-4">
 
+    <h2>Mentions</h2>
+
+    <br>
+    <br>
+
+    <% @person.mentions.order(created_at: :desc).each do |mention| %>
+      <% source = mention.sourceable_type.constantize.find(mention.sourceable_id) %>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= source.person.first_name %> <%= source.title %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= source.created_at.strftime("%A %B %-d, %Y") %></h6>
+          <hr>
+          <p class="card-text"><%= source.notes %></p>
+          <hr>
+          <%= link_to 'Go to mention', "/users/#{@user.id}/people/#{source.person.id}/#{mention.sourceable_type.downcase.pluralize}/#{mention.sourceable_id}/edit", class: 'card-link' %>
+        </div>
+      </div>
+    <% end %>
 
     <h2>Bonds</h2>
 

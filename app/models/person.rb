@@ -15,7 +15,8 @@ class Person < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :interactions, dependent: :destroy
   has_many :interests, dependent: :destroy
-  has_many :reminders, as: :memorable
+  has_many :mentions, as: :mentionable, dependent: :destroy
+  has_many :reminders, as: :memorable, dependent: :destroy
 
   accepts_nested_attributes_for :reminders, reject_if: :all_blank, allow_destroy: true
 end

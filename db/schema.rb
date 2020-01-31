@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_30_212802) do
+ActiveRecord::Schema.define(version: 2020_01_31_044348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2020_01_30_212802) do
     t.boolean "private_interaction"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
     t.index ["person_id"], name: "index_interactions_on_person_id"
     t.index ["user_id"], name: "index_interactions_on_user_id"
   end
@@ -109,6 +110,17 @@ ActiveRecord::Schema.define(version: 2020_01_30_212802) do
     t.bigint "person_two_id"
     t.index ["person_one_id"], name: "index_links_on_person_one_id"
     t.index ["person_two_id"], name: "index_links_on_person_two_id"
+  end
+
+  create_table "mentions", force: :cascade do |t|
+    t.string "mentionable_type"
+    t.bigint "mentionable_id"
+    t.string "sourceable_type"
+    t.bigint "sourceable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["mentionable_type", "mentionable_id"], name: "index_mentions_on_mentionable_type_and_mentionable_id"
+    t.index ["sourceable_type", "sourceable_id"], name: "index_mentions_on_sourceable_type_and_sourceable_id"
   end
 
   create_table "people", force: :cascade do |t|
