@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60488332-385c-4139-b535-a6a28040d8cf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/interactions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/interactions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/interaction.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/interaction.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/person.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/person.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/interactions/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/interactions/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/people/_person.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/people/_person.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/people/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/people/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -44,8 +37,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/people/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="60" column="24" lean-forward="true" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
+            <state relative-caret-position="329">
+              <caret line="45" column="10" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -473,12 +466,12 @@
       <workItem from="1580406581254" duration="733000" />
       <workItem from="1580417180497" duration="565000" />
       <workItem from="1580419691871" duration="1137000" />
-      <workItem from="1580421032296" duration="14228000" />
+      <workItem from="1580421032296" duration="14589000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80024000" />
+    <option name="totallyTimeSpent" value="80385000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3413" y="57" width="1414" height="852" extended-state="0" />
@@ -536,7 +529,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/app/views/people/show.html.erb</url>
-          <line>184</line>
+          <line>185</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -878,8 +871,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/people/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="60" column="24" lean-forward="true" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
+        <state relative-caret-position="329">
+          <caret line="45" column="10" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
         </state>
       </provider>
     </entry>
