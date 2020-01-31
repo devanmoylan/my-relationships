@@ -12,8 +12,9 @@
   <tbody>
     <% @people.each do |person| %>
       <tr>
-        <td><%= image_tag url_for(avatar(person, 50)), class: 'rounded' %></td>
-        <td><%= person.name %></td>
+        <td><%= image_tag url_for(avatar(person, 50)), class: 'rounded-circle' %></td>
+        <td><%= person.first_name %></td>
+        <td><%= person.last_name %></td>
         <td><%= link_to 'Show', user_person_path(@user, person) %></td>
         <td><%= link_to 'Edit', edit_user_person_path(@user, person) %></td>
         <td><%= link_to 'Destroy', user_person_path(@user, person), method: :delete, data: {confirm: 'Are you sure?' } %></td>

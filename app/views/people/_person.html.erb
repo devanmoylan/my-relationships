@@ -1,4 +1,4 @@
-<span class="mention">
+<%= link_to user_person_path(current_user, person), class: "mention" do %>
   <%= image_tag avatar(person, 40), class: 'rounded' %>
   <%= "#{ person.name }" %>
-</span>
+<% end %>

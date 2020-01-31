@@ -2,7 +2,7 @@
 
 class MentionsController < ApplicationController
   def index
-    @people = Person.all
+    @people = current_user.people
 
     respond_to do |format|
       format.json
