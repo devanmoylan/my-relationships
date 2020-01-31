@@ -43,7 +43,7 @@
           <p class="card-text"><%= "Location: #{interaction.location}" if interaction.location%></p>
           <hr>
           <%= link_to 'Edit', edit_user_person_interaction_path(@user, @person, interaction), class: 'card-link' %>
-          
+
           <%= link_to 'Destroy', user_person_interaction_path(@user, @person, interaction), method: :delete, data: {confirm: 'Are you sure?'}, class: 'card-link' %>
         </div>
       </div>

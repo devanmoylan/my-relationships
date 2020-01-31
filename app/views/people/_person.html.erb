@@ -1,2 +1,12 @@
-<%= image_tag avatar(person, 25), class: 'rounded-circle' %>
-<%= "#{ person.name }" %>
+<% if params[:user_id] %>
+  <%= link_to user_person_path(params[:user_id], person) do %>
+    <%= image_tag avatar(person, 25), class: 'rounded-circle' %>
+    <%= "#{ person.name }" %>
+  <% end %>
+<% else %>
+  <%= image_tag avatar(person, 25), class: 'rounded-circle' %>
+  <%= "#{ person.name }" %>
+<% end %>
+
+
+
