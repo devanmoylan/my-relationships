@@ -26,3 +26,5 @@ import "controllers"
 
 require("trix")
 require("@rails/actiontext")
+
+import 'cocoon-js';

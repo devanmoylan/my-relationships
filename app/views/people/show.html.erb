@@ -73,7 +73,7 @@
             <tr>
               <td><%= bond.name %> <br><%= "age: #{ age_helper(bond.birthday)}" if bond.birthday %></td>
               <td><%= bond.relationship %></td>
-              <td><%= link_to 'Edit', edit_user_person_bond_path(@user, @person, bond) %> <%= link_to 'Destroy', user_person_bond_path(@user, @person, bond), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Edit', edit_user_person_bond_path(@user, @person, bond) %> <%= link_to 'Destroy', user_person_bond_path(@user, @person, bond), method: :delete, data: {confirm: 'Are you sure?'} %></td>
             </tr>
           <% end %>
           </tbody>
@@ -94,7 +94,7 @@
       <div class="card-body">
         <% @person.experiences.order(end_date: :desc).each do |experience| %>
           <h5 class="card-title"><%= experience.role %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= "#{experience.start_date.strftime("%B %Y")} - #{experience.current? ? 'current' : experience.end_date.strftime("%B %Y")}"  %></h6>
+          <h6 class="card-subtitle mb-2 text-muted"><%= "#{experience.start_date.strftime("%B %Y")} - #{experience.current? ? 'current' : experience.end_date.strftime("%B %Y")}" %></h6>
           <hr>
           <table>
             <tbody>
