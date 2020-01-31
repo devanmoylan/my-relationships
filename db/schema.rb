@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_31_044348) do
+ActiveRecord::Schema.define(version: 2020_01_31_193409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,6 +119,9 @@ ActiveRecord::Schema.define(version: 2020_01_31_044348) do
     t.bigint "sourceable_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "source_person_name"
+    t.string "source_title"
+    t.string "source_path"
     t.index ["mentionable_type", "mentionable_id"], name: "index_mentions_on_mentionable_type_and_mentionable_id"
     t.index ["sourceable_type", "sourceable_id"], name: "index_mentions_on_sourceable_type_and_sourceable_id"
   end

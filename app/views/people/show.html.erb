@@ -58,15 +58,14 @@
     <br>
 
     <% @person.mentions.order(created_at: :desc).each do |mention| %>
-      <% source = mention.sourceable_type.constantize.find(mention.sourceable_id) %>
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title"><%= source.person.first_name %> <%= source.title %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= source.created_at.strftime("%A %B %-d, %Y") %></h6>
+          <h5 class="card-title"><%= mention.source_person_name %> <%= mention.source_title %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= mention.updated_at.strftime("%A %B %-d, %Y") %></h6>
           <hr>
-          <p class="card-text"><%= source.notes %></p>
+          <p class="card-text"><%= mention.body %></p>
           <hr>
-          <%= link_to 'Go to mention', "/users/#{@user.id}/people/#{source.person.id}/#{mention.sourceable_type.downcase.pluralize}/#{mention.sourceable_id}/edit", class: 'card-link' %>
+          <%= link_to 'Go to mention', mention.source_path, class: 'card-link' %>
         </div>
       </div>
     <% end %>
