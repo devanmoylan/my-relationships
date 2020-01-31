@@ -30,12 +30,12 @@
 
     <%= form.fields_for :reminders do |reminder| %>
 
-      <%= render 'reminder_fields', f: reminder %>
+      <%= render 'reminders/reminder_fields', f: reminder %>
 
     <% end %>
 
     <div class='links'>
-      <%= link_to_add_association 'add reminder', form, :reminders %>
+      <%= link_to_add_association 'add reminder', form, :reminders, partial: 'reminders/reminder_fields' %>
     </div>
   </div>
 

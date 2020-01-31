@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60488332-385c-4139-b535-a6a28040d8cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/interactions/_reminder_fields.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/my-relationships.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/my-relationships.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/interactions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/interactions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/interaction.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/interaction.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/person.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/person.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/interactions/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/interactions/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/people/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/people/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/interactions/_reminder_fields.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/reminders/_reminder_fields.html.erb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -50,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/interactions/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="32" column="35" lean-forward="true" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
+            <state relative-caret-position="383">
+              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
             </state>
           </provider>
         </entry>
@@ -75,10 +64,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/interactions/_reminder_fields.html.erb">
+        <entry file="file://$PROJECT_DIR$/app/views/reminders/_reminder_fields.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="21" lean-forward="true" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+            <state relative-caret-position="240">
+              <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -192,11 +181,11 @@
         <option value="$PROJECT_DIR$/app/models/interest.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/models/interaction.rb" />
-        <option value="$PROJECT_DIR$/app/views/reminders/_reminder_fields.html.erb" />
         <option value="$PROJECT_DIR$/app/models/reminder.rb" />
         <option value="$PROJECT_DIR$/app/controllers/interactions_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/interactions/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/interactions/_reminder_fields.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/interactions/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/reminders/_reminder_fields.html.erb" />
       </list>
     </option>
   </component>
@@ -253,13 +242,6 @@
             <path>
               <item name="my-relationships" type="b2602c69:ProjectViewProjectNode" />
               <item name="my-relationships" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="reminders" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="my-relationships" type="b2602c69:ProjectViewProjectNode" />
-              <item name="my-relationships" type="462c0819:PsiDirectoryNode" />
               <item name="db" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -294,6 +276,7 @@
       <recent name="$PROJECT_DIR$/app/views/connections" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/reminders" />
       <recent name="$PROJECT_DIR$/app/views/interactions" />
       <recent name="$PROJECT_DIR$/app/views" />
     </key>
@@ -453,12 +436,12 @@
       <workItem from="1580406581254" duration="733000" />
       <workItem from="1580417180497" duration="565000" />
       <workItem from="1580419691871" duration="1137000" />
-      <workItem from="1580421032296" duration="4991000" />
+      <workItem from="1580421032296" duration="5322000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70787000" />
+    <option name="totallyTimeSpent" value="71118000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="794" extended-state="6" />
@@ -845,15 +828,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/interactions/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="32" column="35" lean-forward="true" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
+        <state relative-caret-position="383">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/interactions/_reminder_fields.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/reminders/_reminder_fields.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="21" lean-forward="true" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        <state relative-caret-position="240">
+          <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
         </state>
       </provider>
     </entry>
