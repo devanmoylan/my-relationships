@@ -35,6 +35,7 @@ class InteractionsController < ApplicationController
         format.html { redirect_to user_person_path(the_user, the_person), notice: 'Interaction was successfully updated.' }
         format.json { render user_person_path(the_user, the_person), status: :ok, location: @interaction }
       else
+        binding.pry
         format.html { render edit_user_person_interaction_path(the_user, the_person, @interaction) }
         format.json { render json: @interaction.errors, status: :unprocessable_entity }
       end
@@ -60,6 +61,6 @@ class InteractionsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def interaction_params
-    params.require(:interaction).permit(:notes, :key_take_aways, :follow_ups, :location, :private_interactionm, reminders_attributes: [:id, :name, :date, :description, :_destroy])
+    params.require(:interaction).permit(:title, :notes, :key_take_aways, :follow_ups, :location, :private_interactionm, reminders_attributes: [:id, :name, :date, :description, :_destroy])
   end
 end
