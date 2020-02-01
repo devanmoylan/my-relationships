@@ -18,3 +18,15 @@
     padding: 20px;
     margin: 10px 0 10px;
 }
+
+a {
+    font-weight: 400!important;
+    color: #0083ff !important;
+    text-decoration: none!important;
+}
+
+a:hover {
+    background-color: transparent !important;
+}
+
+
