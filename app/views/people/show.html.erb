@@ -21,6 +21,21 @@
         <%= @person.birthday %> <%= "(age: ~#{ age_helper(@person.birthday) })" if @person.birthday? %>
       </p>
 
+      <p>
+        <strong>Email:</strong>
+        <%= @person.email %>
+      </p>
+
+      <p>
+        <strong>Position:</strong>
+        <%= @person.position %>
+      </p>
+
+      <p>
+        <strong>Company:</strong>
+        <%= @person.company %>
+      </p>
+
       <%= link_to 'Edit', edit_user_person_path(@user, @person) %>
     </div>
   </div>

@@ -1,28 +1,65 @@
 <p id="notice"><%= notice %></p>
 
 <h1>People</h1>
+<div class="row">
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="..." class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Add a person</h5>
+          <p class="card-text"><%= link_to 'New Person', new_user_person_path(@user) %></p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @people.each do |person| %>
-      <tr>
-        <td><%= image_tag url_for(avatar(person, 50)), class: 'rounded-circle' %></td>
-        <td><%= person.first_name %></td>
-        <td><%= person.last_name %></td>
-        <td><%= link_to 'Show', user_person_path(@user, person) %></td>
-        <td><%= link_to 'Edit', edit_user_person_path(@user, person) %></td>
-        <td><%= link_to 'Destroy', user_person_path(@user, person), method: :delete, data: {confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="..." class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Import people</h5>
+          <p class="card-text">
+            <%= form_tag import_user_people_path(@user), multipart: true do %>
+              <%= file_field_tag :file %>
+              <%= submit_tag 'Upload' %>
+            <% end %>
+          </p>
+          <p class="card-text">
+            <small class="text-muted">Google Contacts or LinkedIn Connections</small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <br>
 
-<%= link_to 'New Person', new_user_person_path(@user) %>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Name</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @people.each do |person| %>
+    <tr>
+      <td><%= image_tag url_for(avatar(person, 50)), class: 'rounded-circle' %></td>
+      <td><%= person.first_name %></td>
+      <td><%= person.last_name %></td>
+      <td><%= link_to 'Show', user_person_path(@user, person) %></td>
+      <td><%= link_to 'Edit', edit_user_person_path(@user, person) %></td>
+      <td><%= link_to 'Destroy', user_person_path(@user, person), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+

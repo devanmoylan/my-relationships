@@ -66,6 +66,10 @@ class PeopleController < ApplicationController
     end
   end
 
+  def import
+    redirect_to user_people_path(params[:user_id]), notice: ImportPeopleFromCsvService.new(params[:user_id], params[:file]).import
+  end
+
   private
 
   # Never trust parameters from the scary internet, only allow the white list through.
