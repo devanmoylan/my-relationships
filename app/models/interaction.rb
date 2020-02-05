@@ -17,17 +17,17 @@ class Interaction < ApplicationRecord
     people = person_mentions - [person]
 
     people.each do |person|
-      mention = self.mentions.find_or_initialize_by(mentionable_type: 'Person', mentionable_id: person.id)
+      mention = mentions.find_or_initialize_by(mentionable_type: 'Person', mentionable_id: person.id)
       mention.update(
-        body: self.notes,
-        source_path: "/users/#{user_id}/people/#{person_id}/interactions/#{self.id}/edit",
+        body: notes,
+        source_path: "/users/#{user_id}/people/#{person_id}/interactions/#{id}/edit",
         source_person_name: self.person.name.familiar,
-        source_title: self.title,
+        source_title: title
       )
     end
   end
 
   def person_mentions
-    @people ||= notes.body.attachments.select {|a| a.attachable.class == Person}.map(&:attachable).uniq
+    @people ||= notes.body.attachments.select { |a| a.attachable.class == Person }.map(&:attachable).uniq
   end
 end

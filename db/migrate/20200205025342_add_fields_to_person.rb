@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddFieldsToPerson < ActiveRecord::Migration[6.0]
   def change
     add_column :people, :email, :string

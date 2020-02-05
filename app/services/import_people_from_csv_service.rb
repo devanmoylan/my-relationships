@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ImportPeopleFromCsvService
   def initialize(user_id, csv_file)
     @user_id = user_id
@@ -42,11 +44,11 @@ class ImportPeopleFromCsvService
   def first_name(row)
     # google_contacts: :name
     # linked_in: :first_name
-    row[:first_name].presence || row[:name]&.split(" ")&.first
+    row[:first_name].presence || row[:name]&.split(' ')&.first
   end
 
   def last_name(row)
-    row[:last_name].presence || row[:name]&.split(" ")&.last
+    row[:last_name].presence || row[:name]&.split(' ')&.last
   end
 
   def email(row)

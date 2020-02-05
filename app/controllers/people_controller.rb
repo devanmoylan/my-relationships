@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class PeopleController < ApplicationController
-
   # GET /people
   # GET /people.json
   def index

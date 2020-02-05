@@ -11,4 +11,3 @@ class ApplicationController < ActionController::Base
     @person ||= the_user.people.find(params[:person_id] || params[:id])
   end
 end
-

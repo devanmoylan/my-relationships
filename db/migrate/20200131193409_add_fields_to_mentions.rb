@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddFieldsToMentions < ActiveRecord::Migration[6.0]
   def change
     add_column :mentions, :source_person_name, :string

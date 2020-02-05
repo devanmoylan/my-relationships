@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateBonds < ActiveRecord::Migration[6.0]
   def change
     create_table :bonds do |t|

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BondsController < ApplicationController
   def new
     @bond = the_person.bonds.build
@@ -50,8 +52,9 @@ class BondsController < ApplicationController
   end
 
   private
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def bond_params
-      params.require(:bond).permit(:first_name, :last_name, :relationship, :birthday)
-    end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def bond_params
+    params.require(:bond).permit(:first_name, :last_name, :relationship, :birthday)
+  end
 end
