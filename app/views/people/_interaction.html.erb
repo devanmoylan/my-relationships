@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><%= interaction.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= interaction.created_at.strftime("%A %B %-d, %Y") %></h6>
+    <hr>
+    <p class="card-text"><%= interaction.notes %></p>
+    <p class="card-text"><%= "Location: #{interaction.location}" if interaction.location%></p>
+    <hr>
+    <%= link_to 'Edit', edit_user_person_interaction_path(user, person, interaction), class: 'card-link' %>
+
+    <%= link_to 'Destroy', user_person_interaction_path(user, person, interaction), method: :delete, data: {confirm: 'Are you sure?'}, class: 'card-link' %>
+  </div>
+</div>

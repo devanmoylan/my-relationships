@@ -42,26 +42,14 @@
 </div>
 <div class="row">
   <div class="col-8">
-    <h2>Interactions</h2>
+    <h2>Activity</h2>
     <%= link_to 'New Interaction', new_user_person_interaction_path(@user, @person) %>
 
     <br>
     <br>
-
-    <% @person.interactions.order(created_at: :desc).each do |interaction| %>
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"><%= interaction.title %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= interaction.created_at.strftime("%A %B %-d, %Y") %></h6>
-          <hr>
-          <p class="card-text"><%= interaction.notes %></p>
-          <p class="card-text"><%= "Location: #{interaction.location}" if interaction.location%></p>
-          <hr>
-          <%= link_to 'Edit', edit_user_person_interaction_path(@user, @person, interaction), class: 'card-link' %>
-
-          <%= link_to 'Destroy', user_person_interaction_path(@user, @person, interaction), method: :delete, data: {confirm: 'Are you sure?'}, class: 'card-link' %>
-        </div>
-      </div>
+    <% activity =  @person.interactions + @person.mentions %>
+    <% activity.sort_by(&:created_at).each do |object| %>
+      <%= render partial: "#{object.class.name.downcase}", locals: { object.class.name.downcase.to_sym => object, person: @person, user: @user } %>
     <% end %>
   </div>
 
@@ -72,17 +60,8 @@
     <br>
     <br>
 
-    <% @person.mentions.order(created_at: :desc).each do |mention| %>
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"><%= mention.source_person_name %> <%= mention.source_title %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= mention.updated_at.strftime("%A %B %-d, %Y") %></h6>
-          <hr>
-          <p class="card-text"><%= mention.body %></p>
-          <hr>
-          <%= link_to 'Go to mention', mention.source_path, class: 'card-link' %>
-        </div>
-      </div>
+    <% @person.mentions.order(created_at: :desc).each do |object| %>
+      <%= render partial: "#{object.class.name.downcase}", locals: { object.class.name.downcase.to_sym => object, person: @person, user: @user } %>
     <% end %>
 
     <h2>Bonds</h2>
