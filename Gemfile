@@ -36,6 +36,7 @@ gem 'cocoon'
 gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
 gem 'name_of_person'
 gem 'rubocop'
+gem "font-awesome-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

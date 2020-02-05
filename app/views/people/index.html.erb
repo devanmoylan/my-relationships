@@ -2,10 +2,10 @@
 
 <h1>People</h1>
 <div class="row">
-  <div class="card mb-3" style="max-width: 540px;">
+  <div class="card mb-3" style="max-width: 540px; margin: 10px">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <img src="..." class="card-img" alt="...">
+        <%= fa_icon "user 4x", class: "card-img", alt: "Add a person" %>
       </div>
       <div class="col-md-8">
         <div class="card-body">
@@ -16,18 +16,18 @@
     </div>
   </div>
 
-  <div class="card mb-3" style="max-width: 540px;">
+  <div class="card mb-3" style="max-width: 540px; margin: 10px">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <img src="..." class="card-img" alt="...">
+        <%= fa_icon "users 4x", class: "card-img", alt: "Import people" %>
       </div>
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">Import people</h5>
           <p class="card-text">
             <%= form_tag import_user_people_path(@user), multipart: true do %>
-              <%= file_field_tag :file %>
-              <%= submit_tag 'Upload' %>
+              <%= file_field_tag :file, class: "btn btn-link" %>
+              <%= submit_tag 'Upload', class: "btn btn-primary" %>
             <% end %>
           </p>
           <p class="card-text">
