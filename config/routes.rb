@@ -10,6 +10,10 @@ Rails.application.routes.draw do
       resources :events
       resources :interactions
       resources :interests
+
+      collection do
+        post :import
+      end
     end
   end
 

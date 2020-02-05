@@ -66,6 +66,11 @@ class PeopleController < ApplicationController
     end
   end
 
+  def import
+    count = Person.import params[:user_id], params[:file]
+    redirect_to user_people_path(params[:user_id]), notice: "Imported #{count} connections"
+  end
+
   private
 
   # Never trust parameters from the scary internet, only allow the white list through.
