@@ -67,8 +67,7 @@ class PeopleController < ApplicationController
   end
 
   def import
-    count = Person.import params[:user_id], params[:file]
-    redirect_to user_people_path(params[:user_id]), notice: "Imported #{count} connections"
+    redirect_to user_people_path(params[:user_id]), notice: ImportPeopleFromCsvService.new(params[:user_id], params[:file]).import
   end
 
   private
