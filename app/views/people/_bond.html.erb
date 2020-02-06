@@ -1,0 +1,15 @@
+<h5 class="card-title"><%= bond.first_name %> <%= bond.last_name %></h5>
+<h6 class="card-subtitle mb-2 text-muted"><%= bond.relationship %> <%= age_helper(bond.birthday) %></h6>
+<% if bond.notes.present? %>
+  <table>
+    <tbody>
+    <tr>
+      <td><%= bond.notes %></td>
+    </tr>
+    </tbody>
+  </table>
+<% end %>
+<br>
+<%= link_to 'Edit', edit_user_person_bond_path(@user, @person, bond) %> |
+<%= link_to 'Destroy', user_person_bond_path(@user, @person, bond), method: :delete, data: {confirm: 'Are you sure?'} %>
+<hr>
