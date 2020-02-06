@@ -37,6 +37,11 @@
     <%= form.date_field :birthday, as: :date %>
   </div>
 
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.rich_text_area :notes, data: { controller: "mentions", target: "mentions.field" } %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
