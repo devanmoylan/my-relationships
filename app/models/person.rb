@@ -3,9 +3,9 @@
 class Person < ApplicationRecord
   include ActionText::Attachable
 
-  has_person_name
-
   has_one_attached :avatar
+  has_person_name
+  has_rich_text :notes
 
   has_many :relationships, join_table: 'relationships', class_name: 'Relationship'
   has_many :users, through: :relationships

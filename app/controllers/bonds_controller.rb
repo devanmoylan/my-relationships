@@ -55,6 +55,6 @@ class BondsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def bond_params
-    params.require(:bond).permit(:first_name, :last_name, :relationship, :birthday)
+    params.require(:bond).permit(:first_name, :last_name, :relationship, :birthday, :notes)
   end
 end

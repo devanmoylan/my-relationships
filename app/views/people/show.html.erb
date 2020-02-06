@@ -36,6 +36,11 @@
         <%= @person.company %>
       </p>
 
+      <p>
+        <strong>Notes:</strong>
+        <%= @person.notes %>
+      </p>
+
       <%= link_to 'Edit', edit_user_person_path(@user, @person) %>
     </div>
   </div>
@@ -77,10 +82,13 @@
           <tbody>
           <% @person.bonds.each do |bond| %>
             <tr>
-              <td><%= bond.name %> <br><%= "age: #{ age_helper(bond.birthday)}" if bond.birthday %></td>
+              <td><%= bond.first_name %> <%= bond.last_name %><br><%= "age: #{ age_helper(bond.birthday)}" if bond.birthday %></td>
               <td><%= bond.relationship %></td>
               <td><%= link_to 'Edit', edit_user_person_bond_path(@user, @person, bond) %> <%= link_to 'Destroy', user_person_bond_path(@user, @person, bond), method: :delete, data: {confirm: 'Are you sure?'} %></td>
             </tr>
+          <tr>
+            <td><%= bond.notes %></td>
+          </tr>
           <% end %>
           </tbody>
         </table>
