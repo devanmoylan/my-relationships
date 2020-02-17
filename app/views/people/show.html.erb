@@ -43,7 +43,7 @@
 
     <br>
     <% activity = @person.interactions + @person.mentions %>
-    <% activity.sort_by(&:created_at).each do |object| %>
+    <% activity.sort_by(&:created_at).reverse_each do |object| %>
       <%= render partial: "#{object.class.name.downcase}", locals: {object.class.name.downcase.to_sym => object, person: @person, user: @user} %>
     <% end %>
   </div>
