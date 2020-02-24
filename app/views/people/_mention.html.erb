@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title"><%= mention.source_person_name %> <%= mention.source_title %></h5>
+    <h5 class="card-title"><%= link_to mention.source_person_name, mention.sourceable.user %> <%= mention.source_title %></h5>
     <h6 class="card-subtitle mb-2 text-muted"><%= mention.updated_at.strftime("%A %B %-d, %Y") %></h6>
     <hr>
     <p class="card-text"><%= mention.body %></p>

@@ -11,7 +11,7 @@
 
   <div class="field">
     <%= f.label :date %>
-    <%= f.datetime_select :date %>
+    <%= f.datetime_select :date, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year'} %>
   </div>
   <%= link_to_remove_association "remove alert", f %>
 </div>
