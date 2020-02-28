@@ -1,0 +1,10 @@
+<table class="table table-hover">
+  <tbody>
+  <% @events.each do |event| %>
+    <tr>
+      <td><%= event.reminder.strftime("%c") %></td>
+      <td><%= event.title %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

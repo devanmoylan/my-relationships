@@ -15,6 +15,8 @@ Rails.application.routes.draw do
         post :import
       end
     end
+
+    resources :reminders, only: :index
   end
 
   resources :mentions, only: [:index]
