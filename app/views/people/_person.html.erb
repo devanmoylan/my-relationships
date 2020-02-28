@@ -13,5 +13,38 @@
 <div class="collapse" id="person-<%= person.id %>">
   <div class="card card-body">
     <%= person.notes %>
+    <hr>
+    <table>
+      <tr><td>EXPERIENCES</td></tr>
+      <% person.experiences.each do |experience| %>
+        <tr>
+          <td>Type:</td>
+          <td><%= experience.experience_type %></td>
+        </tr>
+        <tr>
+          <td>Location:</td>
+          <td><%= experience.location %></td>
+        </tr>
+        <tr>
+          <td>Details:</td>
+          <td><%= experience.description %></td>
+        </tr>
+      <% end %>
+      <tr><td>INTERESTS</td></tr>
+      <% person.interests.each do |interest| %>
+        <tr>
+          <td><%= interest.name %></td>
+        </tr>
+      <% end %>
+      <tr><td>BONDS</td></tr>
+      <% person.bonds.each do |bond| %>
+        <tr>
+          <td><%= bond.first_name %></td>
+          <td><%= bond.last_name %></td>
+          <td><%= bond.relationship %></td>
+          <td><%= bond.notes %></td>
+        </tr>
+      <% end %>
+    </table>
   </div>
 </div>
