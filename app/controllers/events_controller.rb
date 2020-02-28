@@ -8,6 +8,10 @@ class EventsController < ApplicationController
     @event = the_user.events.build
   end
 
+  def index
+    @events = the_user.events.with_rich_text_notes_and_embeds.order(created_at: :desc)
+  end
+
   # GET /events/1/edit
   def edit; end
 
@@ -60,6 +64,6 @@ class EventsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
-    params.require(:event).permit(:notes, :reminder, :title, :location)
+    params.require(:event).permit(:notes, :reminder_datetime, :reminder_note, :title, :location)
   end
 end

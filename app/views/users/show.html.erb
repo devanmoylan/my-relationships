@@ -1,9 +1,0 @@
-<h2>Events</h2>
-
-<%= render 'events/form', event: @user.events.build %>
-
-<h4>Old Events</h4>
-<% @user.events.order(created_at: :desc).each do |event| %>
-  <%= render 'events/form', event: event %>
-<% end %>
-

@@ -16,7 +16,7 @@
       <h5 class="card-title"><%= form.text_field :title %></h5>
       <h6 class="card-subtitle mb-2 text-muted"><%= event.created_at&.strftime("%A %B %-d, %Y") %></h6>
       <hr>
-      <p class="card-text"><%= form.label :reminder %>: <%= form.datetime_select :reminder, default: nil, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year'} %></p>
+      <p class="card-text"><%= form.label :reminder_datetime %>: <%= form.datetime_select :reminder_datetime, default: nil, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year'} %> <%= form.label :reminder_note %>: <%= form.text_field :reminder_note %></p>
       <p class="card-text"><%= form.rich_text_area :notes, data: { controller: "mentions", target: "mentions.field" } %></p>
       <p class="card-text"><%= form.label :location %>: <%= form.text_field :location %></p>
       <hr>

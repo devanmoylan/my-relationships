@@ -10,6 +10,14 @@ module ApplicationHelper
     }.stringify_keys[flash_type.to_s] || flash_type.to_s
   end
 
+  def row_color(date)
+    if date.today?
+      "table-danger"
+    elsif (Date.today..7.days.from_now).include?(date)
+      "table-warning"
+    end
+  end
+
   def avatar(object, size = 40)
     if object.avatar.attached?
       object.avatar.variant(resize: "#{size}x#{size}!")
@@ -23,4 +31,5 @@ module ApplicationHelper
 
     ((Date.today - birthday) / 365.25).to_i
   end
+
 end

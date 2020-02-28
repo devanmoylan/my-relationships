@@ -1,0 +1,9 @@
+<h2>Events</h2>
+
+<%= render 'events/form', event: current_user.events.build %>
+
+<h4>Old Events</h4>
+<% @events.each do |event| %>
+  <%= render 'events/form', event: event %>
+<% end %>
+
