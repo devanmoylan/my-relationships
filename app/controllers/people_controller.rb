@@ -4,13 +4,20 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = the_user.people.order(first_name: :asc)
+    @people = the_user.people.includes([:avatar_attachment, :rich_text_notes, :experiences, :interests, :bonds, bonds: [:rich_text_notes]]).order(first_name: :asc)
   end
 
   # GET /people/1
   # GET /people/1.json
   def show
-    @person = the_user.people.find(params[:id])
+    @person = the_user.people.includes(
+      [
+        :avatar_attachment, :rich_text_notes, :mentions, :interactions, :interests, :bonds,
+        bonds: [:rich_text_notes],
+        mentions: [:rich_text_notes],
+        interactions: [:rich_text_notes],
+      ]
+    ).find(params[:id])
   end
 
   # GET /people/new

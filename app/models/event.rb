@@ -14,8 +14,8 @@ class Event < ApplicationRecord
       mention = mentions.find_or_initialize_by(mentionable_type: 'Person', mentionable_id: person.id)
       mention.update!(
         body: notes,
-        source_person_name: self.user.name.familiar,
-        source_path: "/users/#{user_id}/events/#{self.id}/edit",
+        source_person_name: user.name.familiar,
+        source_path: "/users/#{user_id}/events/#{id}/edit",
         source_title: title
       )
     end

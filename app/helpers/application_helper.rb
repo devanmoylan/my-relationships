@@ -12,9 +12,9 @@ module ApplicationHelper
 
   def row_color(date)
     if date.today?
-      "table-danger"
+      'table-danger'
     elsif (Date.today..7.days.from_now).include?(date)
-      "table-warning"
+      'table-warning'
     end
   end
 
@@ -31,5 +31,4 @@ module ApplicationHelper
 
     ((Date.today - birthday) / 365.25).to_i
   end
-
 end

@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = the_user.events.with_rich_text_notes_and_embeds.order(created_at: :desc)
+    @events = the_user.events.includes([:rich_text_notes]).order(created_at: :desc)
   end
 
   # GET /events/1/edit
