@@ -3,9 +3,9 @@
     <%= person.notes %>
     <hr>
     <table>
-      <% if person.experiences.load.size.positive? %>
+      <% if person.experiences.size.positive? %>
         <tr>
-          <td>EXPERIENCES</td>
+          <td><strong>EXPERIENCES</strong></td>
         </tr>
         <% person.experiences.each do |experience| %>
           <tr>
@@ -22,9 +22,9 @@
           </tr>
         <% end %>
       <% end %>
-      <% if person.interests.load.size.positive? %>
+      <% if person.interests.size.positive? %>
         <tr>
-          <td>INTERESTS</td>
+          <td><strong>INTERESTS</strong></td>
         </tr>
         <% person.interests.each do |interest| %>
           <tr>
@@ -32,9 +32,9 @@
           </tr>
         <% end %>
       <% end %>
-      <% if person.bonds.load.size.positive? %>
+      <% if person.bonds.size.positive? %>
         <tr>
-          <td>BONDS</td>
+          <td><strong>BONDS</strong></td>
         </tr>
         <% person.bonds.each do |bond| %>
           <tr>
