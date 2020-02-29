@@ -13,8 +13,8 @@ class PeopleController < ApplicationController
     @person = the_user.people.includes(
       [
         :avatar_attachment, :rich_text_notes, :mentions, :interactions, :interests, :bonds,
+        interactions: [:sourceable],
         bonds: [:rich_text_notes],
-        mentions: [:rich_text_notes],
         interactions: [:rich_text_notes],
       ]
     ).find(params[:id])
